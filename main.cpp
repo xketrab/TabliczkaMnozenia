@@ -1,21 +1,12 @@
 #include <iostream>
-#include <math.h>
 #include <random>
-#include <stdlib.h>
-#include <random>
-//Tabliczka mnożenia
-//liczbę pytań i zakres tabliczki mnożenia ustala użytkownik, np. 5 pytań i tabliczka do 10
-////program losuje zmienne z podanego zakresu i zadaje pytanie np. ile to jest 7*9
-//użytkownik odpowiada i otrzymuje komunikat zwrotny w każdym przypadku
-//program zlicza poprawne odpowiedzi i oblicza wynik procentowy
-//na podstawie wyniku procentowego program wystawia ocenę zgodnie z PZO
 
 int main()
 {
     using namespace std;
 
     int max_questions;
-    int min_range = 1;
+    int min_range = 2; // Minimalny czynnik w mnożeniu jest ustawiony na 2, ponieważ mnozenie przez 1 jest bezsensowne.
     int max_range;
 
     std::cout << "Podaj ilosc pytan, jakie program ma Tobie zadac: ";
@@ -25,14 +16,12 @@ int main()
     std::cout << "Podaj do jakiej liczby maja zostac zadane pytania(np. do 10): ";
     std::cin >> max_range;
 
-    std::random_device rd; // obtain a random number from hardware
-    std::mt19937 gen(rd()); // seed the generator
-    std::uniform_int_distribution<> distr(min_range, max_range); // define the range
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distr(min_range, max_range);
 
     int score = 0;
     int result = 0;
-    //int one = distr(gen);
-    //int two = distr(gen);
 
     for(int n=0; n<max_questions; ++n){
 
